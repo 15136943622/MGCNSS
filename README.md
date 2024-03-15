@@ -24,15 +24,15 @@ Recent versions of the following packages for Python 3 are required:
 Run `Link_Prediction.py` directly to do MDA tasks.
 
 ## About `my_model.pkl`
-It is a trained model, you can do prediction directly by load this file through `torch.load('my_model.pkl')`.
-Then, please add those parameters to the model
-   'feature': the initial feature of nodes, size 878
-   'A': the fused similarity matrix of miRNA
-   'B': the fused similarity matrix of disease
-   'o_ass': miRNA-disease adjacent matrix
-   'layer': convolutional layer, you can set the value with 2
-Then, you can obtain the finial feature matrix of miRNAs and diseases, and you can do prediction tasks.
-The experimental parameter setting about this model: epoch-2000, learning rate-0.0005, embedding size-256, convolution layer-2.
+* It is a trained model, you can do prediction directly by load this file through `torch.load('my_model.pkl')`.
+* Then, please add those parameters to the model
+*    'feature': the initial feature of nodes, size 878
+*    'A': the fused similarity matrix of miRNA
+*    'B': the fused similarity matrix of disease
+*    'o_ass': miRNA-disease adjacent matrix
+*    'layer': convolutional layer, you can set the value with 2
+* Then, you can obtain the finial feature matrix of miRNAs and diseases, and you can do prediction tasks.
+* The experimental parameter setting about this model: epoch-2000, learning rate-0.0005, embedding size-256, convolution layer-2.
 
 
 

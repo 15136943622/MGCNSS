@@ -46,7 +46,6 @@ o_ass = mat['raw_association']
 aus, f1s, recalls, accs, fprs, tprs, auprs = [], [], [], [], [], [], []
 
 for i in [1]:
-    print(i)
     t1 = time.time()
     model = get_model(args.model, 878, A, B, o_ass, args.hidden, 256, args.dropout, False, stdv=1 / 72, layer=2)
     auc, f1, recall, acc, fpr, tpr, aupr = predict_model(model, file_name, feature, A, B, o_ass, eval_type, 0.0005,

@@ -136,7 +136,7 @@ class MHGCN(nn.Module):
         adjacency_matrix2 = torch.cat(
             (torch.as_tensor(final_A).to(device), torch.fliplr(torch.flipud(torch.as_tensor(o_ass.T).to(device)))), 0)
         # A: 878*878
-        final_hcg = torch.cat((adjacency_matrix1, adjacency_matrix2), 1)
+        final_matrix = torch.cat((adjacency_matrix1, adjacency_matrix2), 1)
 
         try:
             feature = torch.tensor(feature.astype(float).toarray())
@@ -147,15 +147,15 @@ class MHGCN(nn.Module):
                 pass
 
         # Output of single-layer GCN
-        U1 = self.gc1(feature, final_hcg)
+        U1 = self.gc1(feature, final_matrix)
         if layer >= 2:
-            U2 = self.gc2(U1, final_hcg)
+            U2 = self.gc2(U1, final_matrix)
         if layer >= 3:
-            U3 = self.gc3(U2, final_hcg)
+            U3 = self.gc3(U2, final_matrix)
         if layer >= 4:
-            U4 = self.gc4(U3, final_hcg)
+            U4 = self.gc4(U3, final_matrix)
         if layer >= 5:
-            U5 = self.gc5(U4, final_hcg)
+            U5 = self.gc5(U4, final_matrix)
 
         # 合并
         if layer == 1:
